@@ -1,0 +1,95 @@
+{
+  "name": "@zemskov-space/harmonia",
+  "version": "0.2.0",
+  "description": "Procedural UI sounds for Web and React Native. 60 presets, expressive materials, and a tiny shared TypeScript engine. Harmonia by zemskov.space.",
+  "type": "module",
+  "license": "AGPL-3.0-only",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "react-native": "./lib/index.native.js",
+  "exports": {
+    ".": {
+      "react-native": {
+        "types": "./lib/index.native.d.ts",
+        "default": "./lib/index.native.js"
+      },
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./core": {
+      "types": "./lib/core.d.ts",
+      "default": "./lib/core.js"
+    },
+    "./react": {
+      "types": "./lib/react.d.ts",
+      "default": "./lib/react.js"
+    },
+    "./native": {
+      "types": "./lib/index.native.d.ts",
+      "default": "./lib/index.native.js"
+    }
+  },
+  "files": [
+    "lib",
+    "src",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "tsconfig.json",
+    "LICENSING.md"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native-audio-api": "^0.13.6"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-native-audio-api": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -p tsconfig.json --watch",
+    "test": "tsc -p tsconfig.test.json && node --test .test-build/tests/*.test.js",
+    "check": "npm run typecheck && npm test",
+    "prepack": "npm run check && npm run build",
+    "format": "prettier --write src tests examples demo",
+    "dev": "vite demo",
+    "build:demo": "vite build",
+    "preview:demo": "vite preview demo"
+  },
+  "devDependencies": {
+    "@types/node": "22.18.0",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "prettier": "3.6.2",
+    "react": "19.2.0",
+    "react-dom": "^19.3.1",
+    "react-native-audio-api": "0.13.6",
+    "typescript": "5.9.3",
+    "vite": "^8.3.5"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://zemskov.space",
+  "keywords": [
+    "harmonia",
+    "ui-sound",
+    "sound-design",
+    "web-audio",
+    "react-native",
+    "typescript",
+    "procedural-audio",
+    "zemskov-space"
+  ]
+}
