@@ -81,7 +81,14 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://zemskov.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zemskov-space/harmonia.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zemskov-space/harmonia/issues"
+  },
+  "homepage": "https://zemskov-space.github.io/harmonia/",
   "keywords": [
     "harmonia",
     "ui-sound",
