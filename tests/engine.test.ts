@@ -86,7 +86,7 @@ test("all 60 presets × 4 materials produce finite, faded, bounded PCM", () => {
       let energy = 0;
       for (const sample of pcm) {
         assert.ok(Number.isFinite(sample));
-        assert.ok(Math.abs(sample) <= 0.28001);
+        assert.ok(Math.abs(sample) <= 0.88001);
         energy += sample * sample;
       }
       assert.ok(energy > 0.0001);

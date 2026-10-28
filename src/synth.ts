@@ -115,7 +115,7 @@ export function renderSound(
         (tone * (1 - noise * 0.65) + filtered * noise * 2) *
         envelope *
         finite(voice.gain, 1, 0, 1) *
-        0.22;
+        1.2;
     }
   }
   // Bounded peak, DC removal, and short fades prevent clicks and keep dense UI events gentle.
@@ -127,7 +127,7 @@ export function renderSound(
     pcm[i] -= mean;
     peak = Math.max(peak, Math.abs(pcm[i]));
   }
-  const gain = peak > 0.28 ? 0.28 / peak : 1;
+  const gain = peak > 0.88 ? 0.88 / peak : 1;
   for (let i = 0; i < pcm.length; i++)
     pcm[i] *=
       gain *

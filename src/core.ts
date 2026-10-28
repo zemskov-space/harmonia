@@ -167,9 +167,7 @@ export class SoundEngine {
     this.notify();
   }
   private masterVolume() {
-    return this.config.enabled
-      ? this.config.volume * Math.min(1, 3 / this.maxVoices)
-      : 0;
+    return this.config.enabled ? this.config.volume : 0;
   }
   /** Call from a user gesture on web. Lazy construction is safe during SSR. */
   async unlock(): Promise<void> {
