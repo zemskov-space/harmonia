@@ -109,13 +109,13 @@ export function renderSound(
       const tone = Math.sin(phase) + harmonic;
       const envelope =
         Math.min(1, t / attack) *
-        Math.exp(-6 * u) *
+        Math.exp(-4.2 * u) *
         Math.min(1, (length - i) / Math.max(1, 0.006 * sampleRate));
       pcm[start + i] +=
         (tone * (1 - noise * 0.65) + filtered * noise * 2) *
         envelope *
         finite(voice.gain, 1, 0, 1) *
-        1.2;
+        1.5;
     }
   }
   // Bounded peak, DC removal, and short fades prevent clicks and keep dense UI events gentle.
@@ -127,7 +127,8 @@ export function renderSound(
     pcm[i] -= mean;
     peak = Math.max(peak, Math.abs(pcm[i]));
   }
-  const gain = peak > 0.88 ? 0.88 / peak : 1;
+  const targetPeak = 0.95;
+  const gain = peak > 0.001 ? targetPeak / peak : 1;
   for (let i = 0; i < pcm.length; i++)
     pcm[i] *=
       gain *

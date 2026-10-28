@@ -343,7 +343,10 @@ function InteractivePlayground() {
             <div className="volume-control">
               <div className="control-title">
                 <label htmlFor="volume">Volume</label>
-                <output>{Math.round(settings.volume * 100)}%</output>
+                <output>
+                  {Math.round(settings.volume * 100)}%
+                  {settings.volume > 1 ? " ⚡" : ""}
+                </output>
               </div>
               <div className="volume-line">
                 <span aria-hidden="true">◖))</span>
@@ -351,12 +354,12 @@ function InteractivePlayground() {
                   type="range"
                   id="volume"
                   min="0"
-                  max="1"
+                  max="1.5"
                   step="0.01"
                   value={settings.volume}
                   style={
                     {
-                      "--fill": `${settings.volume * 100}%`,
+                      "--fill": `${(settings.volume / 1.5) * 100}%`,
                     } as React.CSSProperties
                   }
                   onChange={(e) => {
@@ -1301,7 +1304,7 @@ export function App() {
   const engine = useMemo(
     () =>
       createSoundEngine({
-        volume: 1,
+        volume: 0.5,
         material: "felt",
         maxVoices: 6,
       }),

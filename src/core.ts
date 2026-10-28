@@ -103,7 +103,7 @@ export class SoundEngine {
       64 * 1024 * 1024,
     );
     this.config = {
-      volume: finite(options.volume, 0.65, 0, 1),
+      volume: finite(options.volume, 0.65, 0, 3),
       enabled: options.enabled ?? true,
       material: options.material ?? "felt",
       pitch: finite(options.pitch, 1, 0.25, 4),
@@ -146,7 +146,7 @@ export class SoundEngine {
     if (!["felt", "glass", "wood", "bubble"].includes(updated.material))
       throw new RangeError("Unknown material");
     this.config = {
-      volume: finite(updated.volume, 0.65, 0, 1),
+      volume: finite(updated.volume, 0.65, 0, 3),
       enabled: !!updated.enabled,
       material: updated.material,
       pitch: finite(updated.pitch, 1, 0.25, 4),
@@ -301,7 +301,7 @@ export class SoundEngine {
       options.seed === undefined ? Math.floor(Math.random() * 4) : 1.5;
     source.buffer = this.buffer(name, this.renderOptions(options, variant));
     gain.gain.value =
-      finite(options.volume, 1, 0, 1) * finite(options.intensity, 1, 0, 1);
+      finite(options.volume, 1, 0, 3) * finite(options.intensity, 1, 0, 3);
     source.connect(gain);
     gain.connect(this.master!);
     let stopped = false;
