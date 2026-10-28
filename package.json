@@ -59,18 +59,18 @@
     "check": "npm run typecheck && npm test",
     "prepack": "npm run check && npm run build",
     "format": "prettier --write src tests examples demo",
-    "dev": "vite demo",
+    "dev": "vite",
     "build:demo": "vite build",
-    "preview:demo": "vite preview demo"
+    "preview:demo": "vite preview"
   },
   "devDependencies": {
     "@types/node": "22.18.0",
     "@types/react": "19.2.2",
-    "@types/react-dom": "^19.3.0",
+    "@types/react-dom": "19.2.2",
     "@vitejs/plugin-react": "^6.1.2",
     "prettier": "3.6.2",
     "react": "19.2.0",
-    "react-dom": "^19.3.1",
+    "react-dom": "19.2.0",
     "react-native-audio-api": "0.13.6",
     "typescript": "5.9.3",
     "vite": "^8.3.5"
